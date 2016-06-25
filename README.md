@@ -32,7 +32,7 @@ STAGE 1: Select a committee, generate roster with contact info. Roster can be do
       - `["fax"]` beginning with "202"
       - `["contact_form"]`
       - `["office"]`
-  -From **"legistlators-social-media.yaml"** : (after `"id"`)
+  - From **"legistlators-social-media.yaml"** : (after `"id"`)
       - `["bioguide"]`
       - `["social"]["twitter"]`
       - `["social"]["facebook"]`
