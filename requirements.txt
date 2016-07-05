@@ -2,3 +2,4 @@ pandas
 fake-factory
 Jinja2
 react
+gunicorn
