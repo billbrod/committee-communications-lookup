@@ -3,3 +3,4 @@ fake-factory
 Jinja2
 react
 gunicorn
+flask
