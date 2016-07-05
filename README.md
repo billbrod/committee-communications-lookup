@@ -2,20 +2,17 @@
 
 ## web app stuff
 
-Will try and use Bokeh to generate the table I want, with dropdown
-widget. Most of work will be in attempting to learn enough JavaScript
-to use dropdown as a filter.
+I think the way to do this is actually to use
+[FooTable](https://fooplugins.github.io/FooTable/docs/getting-started.html)
+(which requires
+[Bootstrap](http://getbootstrap.com/getting-started/)), which will
+allow us to pretty easily make a
+[filter table](https://fooplugins.github.io/FooTable/docs/examples/advanced/filter-dropdown.html). 
 
-Will also attempt to embed bokeh table within flask app so that we can
-modify the appearance of the resulting html more. 
-
-Useful links:
-
-- [flask and pandas](https://sarahleejane.github.io/learning/python/2015/08/09/simple-tables-in-webapps-using-flask-and-pandas-with-python.html)
-- [flask, bokeh, and heroku](http://blog.thedataincubator.com/2015/09/painlessly-deploying-data-apps-with-bokeh-flask-and-heroku/)
-- [how to embed bokeh charts](http://bokeh.pydata.org/en/0.11.0/docs/user_guide/embed.html)
-- [stackoverflow post about embedding bokeh in flask](http://stackoverflow.com/questions/33450773/embedding-a-bokeh-plot-in-flask)
-- [bokeh interactive components](http://bokeh.pydata.org/en/0.11.1/docs/user_guide/interaction.html)
+So we'll use pandas to get the data in the right format and to an html
+[table](https://sarahleejane.github.io/learning/python/2015/08/09/simple-tables-in-webapps-using-flask-and-pandas-with-python.html),
+then we use flask to get it set up as a web app and FooTable to do all
+the nifty other stuff.
 
 ## functionality
 
