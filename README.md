@@ -14,6 +14,22 @@ So we'll use pandas to get the data in the right format and to an html
 then we use flask to get it set up as a web app and FooTable to do all
 the nifty other stuff.
 
+## Testing
+
+To test on Windows, open up command prompt (Windows-x c), then go to the
+repo's directory (`cd "Documents\Cong list\committee-communications-lookup"`)
+and deploy the app locally (`heroku local -f Procfile.windows`).
+
+To commit any changes and get them on the Github, open the Github desktop
+application and press Sync in the top left, adding a message to explain what
+you've done.
+
+This will not change the deployed app on the website (at committee-
+communications.herokuapp.com). To do that, you'll need to commit the changes
+(which you do in the previous step) and then, on the command line from within
+the committee-communications-lookup directory, type `git push heroku origin`
+to deploy it on the web.
+
 ## functionality
 
 This is a web app to get a roster of the contact info for senators/reps in specific committees or sub-committees. You will be able to select the committee you are interested in, and then receive pertinent Washington contact information.

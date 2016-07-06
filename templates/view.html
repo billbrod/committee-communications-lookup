@@ -1,9 +1,76 @@
 <!doctype html>
-<title>Simple tables</title>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Congress</title>
+ <meta charset="utf-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <header class="container">
+    <div class="row">
+      <h1 class="col-sm-8">Contact Congress</h1>
+      <nav class="col-sm-4">
+        <p>about</p>
+        <p>search</p>
+        <p>contact</p>
+      </nav>
+    </div>
+  </header>
+  <section class="jumbotron">
+    <div class="container">
+      <div class="row text-center">
+        <h2>Congress 2016</h2>
+        <h3>Don't let them fuck it up.</h3>
+        <a class="btn btn-primary" href="#">Make My Voice Heard</a>
+      </div>
+    </div>
+  </section>
+  <section class="container">
+    <h1 align="center">Contact Lists</h1>
+  		{% block cong %}
+  		{{tables | safe}}
+  		{% endblock %}
+  </section>
+  <footer class="container">
+    <div class="row">
+      <p class="col-sm-4">&copy; 2016 Anna Dardick and Billy Broderick</p>
+      <ul class="col-sm-8">
+        <li class="col-sm-1">
+          <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/twitter.svg">
+        </li>
+        <li class="col-sm-1">
+          <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/facebook.svg">
+        </li>
+        <li class="col-sm-1">
+          <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/instagram.svg">
+        </li>
+        <li class="col-sm-1">
+          <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/medium.svg">
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+
+</html>
+
+
+
+
+
+<!--
+	<div id="tbl">
+  <h1>Contact Lists</h1>
+  		{% block content %}
+  		{{tables | safe}}
+  		{% endblock %}
+	</div>
+
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-<div class=page>
-  <h1>Surfer groups</h1>
-  {% block content %}
-  {{tables | safe}}
-  {% endblock %}
-</div>
+
+</body>
