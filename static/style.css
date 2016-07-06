@@ -1,11 +1,15 @@
+/*
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
 
+*/
+
 header {
   padding: 20px 0;
 }
+
 
 header .row,
 footer .row {
@@ -21,11 +25,16 @@ header h1 {
 header nav {
   display: flex;
   justify-content: flex-end;
+  font-style: italic;
 }
 
 header p {
   padding: 0 20px;
   margin: 0;
+}
+
+header nav p:hover {
+	color: #0066CC;
 }
 
 .jumbotron {
@@ -35,7 +44,7 @@ header p {
   background-size: cover;
   color: #ffffff;
   height: 500px;
-  text-shadow: 0.25px 0.25px 0.25px #000000;
+  text-shadow: 0.5px 0.5px 0.5px #000000;
 }
 
 .jumbotron h2 {
@@ -46,8 +55,9 @@ header p {
 }
 
 .jumbotron h3 {
-  margin: 0 0 20px;
+  margin: 20px 0 20px;
   color: #fff;
+  font-weight: bold;
 }
 
 section .row img {
@@ -59,34 +69,19 @@ section .row img {
   margin: 0 0 30px;
 }
 
-.btn.btn-primary {
-  border-radius: 2px;
-  border: 0px;
-  color: #0000FF;
-  text-shadow: none;
-  background-color: #ffffff;
-}
-
-.btn.btn-primary:hover {
-  color: #ffffff;
-  background-color: #0000FF;
-}
-
-.btn-secondary {
-  background-color: #E8DFE0;
-  color: #ffffff;
-  margin: 0 0 30px;
-}
-
 footer {
   font-size: 12px;
   padding: 20px 0;
 }
 
-footer .col-sm-8 {
+/* CHANGED FROM ORIGINAL, MAY NO LONGER WORK NOW
+footer .col-sm-4 {
   display: flex;
   justify-content: flex-end;
+  text-align: center;
 }
+
+*/
 
 footer ul {
   list-style: none;
@@ -96,9 +91,6 @@ footer li img {
   width: 32px;
   height: 32px;
 }
-
-
-/* borrowed the code below inside table, might need reformatting */
 
 .dataframe, .dataframe th, .dataframe td {
   border: 1px solid #C8C8C8;
@@ -112,7 +104,13 @@ footer li img {
   margin: auto;
 }
 
+.dataframe {
+	align:center;
+}
+
+/*
 .dataframe tr:nth-child(odd)		{ background-color:#eee; }
 .dataframe tr:nth-child(even)	{ background-color:#fff; }
 
 .dataframe tr:hover            { background-color: #ffff99;}
+*/
