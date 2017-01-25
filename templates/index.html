@@ -1,0 +1,20 @@
+{% extends base.html %}
+
+{% block content %}
+  <section class="jumbotron">
+    <div class="container">
+      <div class="row text-center">
+        <h2>Congress 2016</h2>
+        <h3>Don't let them fuck it up.</h3>
+        <a class="btn btn-primary" href="#">Make My Voice Heard</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <h1 align="center">Contact Lists</h1>
+      {% block contactlist %}
+          {% raw data %}
+      {% end %}
+  </section>
+{% end %}
