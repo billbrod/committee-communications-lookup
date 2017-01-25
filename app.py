@@ -5,16 +5,21 @@ import tornado.ioloop as ti
 from tornado.web import Application, RequestHandler
 from numpy.random import randint
 
-with open('data/legislators-current.yaml', 'r') as f:
-    df = pd.io.json.json_normalize(yaml.load(f))
+# below should be moved into a "load_data" function that opens and returns data
+# from multiple sources for various purposes
 
-terms = [pd.DataFrame(i) for i in df['terms']]
-terms = pd.concat([t.loc[t.index[-1]] for t in terms], axis=1).T 
-commdata = terms.to_html()
+with open('data/legislators-current.yaml', 'r') as f:
+    ydat = yaml.load(f)
+
+# df = pd.io.json.json_normalize(yaml.load(f))
+#
+# terms = [pd.DataFrame(i) for i in df['terms']]
+# terms = pd.concat([t.loc[t.index[-1]] for t in terms], axis=1).T.reset_index(drop=True)
+# commdata = df.to_html()
 
 class BaseHandler(RequestHandler):
     def get(self):
-        self.render('index.html', data=commdata)
+        self.render('index.html', data=ydat)
 
 handles = [
     (r'/', BaseHandler),
