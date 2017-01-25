@@ -1,21 +1,14 @@
 import os
 import yaml
+import requests
 import pandas as pd
 import tornado.ioloop as ti
 from tornado.web import Application, RequestHandler
 from numpy.random import randint
 
-# below should be moved into a "load_data" function that opens and returns data
-# from multiple sources for various purposes
-
-with open('data/legislators-current.yaml', 'r') as f:
-    ydat = yaml.load(f)
-
-# df = pd.io.json.json_normalize(yaml.load(f))
-#
-# terms = [pd.DataFrame(i) for i in df['terms']]
-# terms = pd.concat([t.loc[t.index[-1]] for t in terms], axis=1).T.reset_index(drop=True)
-# commdata = df.to_html()
+data_source_repo = 'https://raw.githubusercontent.com/unitedstates/congress-legislators/master'
+current_legislators = data_source_repo + '/legislators-current.yaml'
+ydat = yaml.load(requests.get(current_legislators).text)
 
 class BaseHandler(RequestHandler):
     def get(self):
@@ -23,7 +16,7 @@ class BaseHandler(RequestHandler):
 
 handles = [
     (r'/', BaseHandler),
-    # (r'/', CommitteeDataHandler)
+    # (r'/', CommitteeDataHandler) # implement this to get filters for list
 ]
 
 app_settings = {
@@ -40,21 +33,3 @@ if __name__ == '__main__':
     app = make_app()
     app.listen(5000)
     ti.IOLoop.current().start()
-
-
-# import generate_fake_data
-# from flask import *
-# import pandas as pd
-# import os
-# app = Flask(__name__)
-#
-# if not os.path.isfile("./dummy_data.csv"):
-#     generate_fake_data.main()
-# data = pd.read_csv('dummy_data.csv', index_col=0)
-#
-# @app.route("/")
-# def show_tables():
-#     return render_template('view.html', tables=data.to_html())
-#
-# if __name__ == "__main__":
-#     app.run(debug=True)
