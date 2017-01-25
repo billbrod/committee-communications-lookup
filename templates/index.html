@@ -21,7 +21,7 @@
         <thead>
           <tr>
             <th>Name</th>
-            {% for colname in ['State', 'Phone', 'Position', 'Party', 'Term End'] %}
+            {% for colname in ['State', 'District', 'Phone', 'Position', 'Party', 'Term End'] %}
               <th>{{ colname }}</th>
             {% end %}
           </tr>
@@ -30,8 +30,13 @@
           {% for moc in data %}
             <tr>
               <td>{{ moc['name']['official_full'] }}</td>
-              {% for key in ['state', 'phone', 'type', 'party', 'end'] %}
-                <td>{{ escape(moc['terms'][-1][key]) }}</td>
+              {% for key in ['state', 'district', 'phone', 'type', 'party', 'end'] %}
+                <td>
+                  {% if (key == 'district') and (moc['terms'][-1]['type'] == 'sen') %}
+                  {% else %}
+                    {{ escape(str(moc['terms'][-1][key])) }}
+                  {% end %}
+                </td>
               {% end %}
             </tr>
           {% end %}
