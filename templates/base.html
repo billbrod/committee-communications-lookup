@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block titletext %}Contact Congress{% end %}</title>
+  <meta charset="utf-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="static/style.css">
+  <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
+
+</head>
+
+<body>
+  {% block header %}
+    <header class="container">
+      <div class="row">
+        <h1 class="col-sm-8">Contact Congress</h1>
+        <nav class="col-sm-4">
+          <p>about</p>
+          <p>search</p>
+          <p>contact</p>
+        </nav>
+      </div>
+    </header>
+  {% end %}
+
+  {% block content %}
+  {% end %}
+
+  {% block footer %}
+    <footer class="container">
+      <div class="row text-center">
+        <p class="col-sm-12"> &copy; 2016 Anna Dardick and Billy Broderick</p>
+      </div>
+    </footer>
+  {% end %}
+
+</body>
+
+</html>
