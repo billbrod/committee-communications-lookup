@@ -9,14 +9,20 @@ from numpy.random import randint
 data_source_repo = 'https://raw.githubusercontent.com/unitedstates/congress-legislators/master'
 current_legislators = data_source_repo + '/legislators-current.yaml'
 ydat = yaml.load(requests.get(current_legislators).text)
+state_list = ['OH', 'MI', 'NY', 'OK'] # learn from big table of states later (pandas )
 
 class BaseHandler(RequestHandler):
     def get(self):
-        self.render('index.html', data=ydat)
+        self.render('index.html', data=ydat, state_list=state_list)
+
+class CommitteeDataHandler(RequestHandler):
+    def get(self):
+
+        self.write(reply_data)
 
 handles = [
     (r'/', BaseHandler),
-    # (r'/', CommitteeDataHandler) # implement this to get filters for list
+    (r'/', CommitteeDataHandler) # implement this to get filters for list
 ]
 
 app_settings = {

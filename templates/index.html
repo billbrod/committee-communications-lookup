@@ -3,7 +3,7 @@
 {% block content %}
 
   {% block banner %}
-  <section class="jumbotron">
+  <div class="jumbotron">
     <div class="container">
       <div class="row text-center">
         <h2>Congress 2016</h2>
@@ -11,38 +11,63 @@
         <a class="btn btn-primary" href="#">Make My Voice Heard</a>
       </div>
     </div>
-  </section>
+  </div>
   {% end %}
 
   {% block contactlist %}
-    <section class="container">
-      <h1 align="center">Contact Lists</h1>
-      <table class='table sortable'>
-        <thead>
-          <tr>
-            <th>Name</th>
-            {% for colname in ['State', 'District', 'Phone', 'Position', 'Party', 'Term End'] %}
-              <th>{{ colname }}</th>
+    <div class="container">
+      <div class='row'><div class='cols-xs-12'><h1 align="center">Contact Lists</h1></div></div>
+      <div class='row'>
+        <div class='col-xs-6'>
+          <input type='checkbox' class='form-check-input' id='select-house'> Representatives</input>
+          <input type='checkbox' class='form-check-input' id='select-senate'> Senators</input>
+        </div>
+        <div class=col-xs-3>
+          <select class='form-control'>
+            <option value='all'>--Select a state--</option>
+            {% for state in state_list %}
+              <option value={{ state }}>{{ state }}</option>
             {% end %}
-          </tr>
-        </thead>
-        <tbody>
-          {% for moc in data %}
-            <tr>
-              <td>{{ moc['name']['official_full'] }}</td>
-              {% for key in ['state', 'district', 'phone', 'type', 'party', 'end'] %}
-                <td>
-                  {% if (key == 'district') and (moc['terms'][-1]['type'] == 'sen') %}
-                  {% else %}
-                    {{ escape(str(moc['terms'][-1][key])) }}
+          </select>
+        </div>
+        <div class=col-xs-3>
+          <select class='form-control'>
+            <option value='all'>--Select a committee--</option>
+            <option value='appropriations'>Appropriations</option>
+            <option value='science'>Science</option>
+          </select>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <table class='table sortable'>
+            <thead>
+              <tr>
+                <th>Name</th>
+                {% for colname in ['State', 'District', 'Phone', 'Position', 'Party', 'Term End'] %}
+                  <th>{{ colname }}</th>
+                {% end %}
+              </tr>
+            </thead>
+            <tbody>
+              {% for moc in data %}
+                <tr>
+                  <td>{{ moc['name']['official_full'] }}</td>
+                  {% for key in ['state', 'district', 'phone', 'type', 'party', 'end'] %}
+                    <td>
+                      {% if (key == 'district') and (moc['terms'][-1]['type'] == 'sen') %}
+                      {% else %}
+                        {{ escape(str(moc['terms'][-1][key])) }}
+                      {% end %}
+                    </td>
                   {% end %}
-                </td>
+                </tr>
               {% end %}
-            </tr>
-          {% end %}
-        </tbody>
-      </table>
-    </section>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   {% end %}
 
 {% end %}
