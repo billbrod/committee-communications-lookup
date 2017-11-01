@@ -9,6 +9,7 @@ from numpy.random import randint
 data_source_repo = 'https://raw.githubusercontent.com/unitedstates/congress-legislators/master'
 current_legislators = data_source_repo + '/legislators-current.yaml'
 ydat = yaml.load(requests.get(current_legislators).text)
+
 for moc in ydat:
     for t in moc['terms']:
         if t['type'] == 'sen':
